@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "academicpages is a ready-to-fork GitHub Pages template for academic personal websites"
+title: "About me"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
@@ -8,8 +8,6 @@ redirect_from:
   - /about.html
 ---
 
-Write something about me. What I am passionate and motivated about.
+My main area of research is multi-modal SLAM for autonomous navigation. I have worked extensively with camera, lidar and radars and developed algorithms which have been deployed and tested in real vehicles in the automotive industry. My work has algo touched cross-functional areas like auto-calibration and planning where I also used ML techniques. My work in these areas have been published in top tier conferences and has received significant appreciation from the research community -- ICRA Best Student Paper Award Finalist 2021.
 
-A data-driven personal website
-======
-Add some details.
+Currently, I am working as an Industrial PhD student employed by Scania and KTH and expect to graduate by Dec, 2023. The position is funded through a [Swedish Foundation For Strategic Research](https://strategiska.se/en/) scholarship. 
