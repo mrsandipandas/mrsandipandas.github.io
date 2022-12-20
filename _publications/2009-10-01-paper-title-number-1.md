@@ -8,8 +8,18 @@ venue: 'Arxiv'
 paperurl: 'http://academicpages.github.io/files/mmse.pdf'
 citation: 'Das S, Gohain PB, Javid AM, Eldar YC, Chatterjee S. Statistical model-based evaluation of neural networks. arXiv preprint arXiv:2011.09015. 2020 Nov 18.'
 ---
-This paper is about the number 1. The number 2 is left for future work.
+<p style="text-align: justify;"> 
+Using a statistical model-based data generation, we de-
+velop an experimental setup for the evaluation of neural net-
+works (NNs). The setup helps to benchmark a set of NNs
+vis-a-vis minimum-mean-square-error (MMSE) performance
+bounds. This allows us to test the effects of training data size,
+data dimension, data geometry, noise, and mismatch between
+training and testing conditions. In the proposed setup, we use
+a Gaussian mixture distribution to generate data for training
+and testing a set of competing NNs. Our experiments show
+the importance of understanding the type and statistical con-
+ditions of data for appropriate application and design of NNs.
+</p>
 
 [Download paper here](http://academicpages.github.io/files/mmse.pdf)
-
-Recommended citation: Your Name, You. (2009). "Paper Title Number 1." <i>Journal 1</i>. 1(1).
