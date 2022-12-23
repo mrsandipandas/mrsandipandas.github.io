@@ -51,9 +51,12 @@
     {% elsif post.excerpt and site.read_more == 'enabled' %}
     <!--<p class="archive__item-excerpt" itemprop="description"><p>{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}<strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong></p></p>-->
     {% endif %}
+    <!-- This is Sandipan's code -->
+    {% if post.shortcitation and post.paperurl and post.videourl %}
+      <p>{{ post.shortcitation }} &nbsp; <a href="{{ post.paperurl }}">Paper</a> &nbsp; <a href="{{ post.videourl }}">Video</a></p>
     
-    {% if post.citation and post.paperurl %}
-      <p>{{ post.citation }} <a href="{{ post.paperurl }}"> Paper</a></p>
+    {% elsif post.shortcitation and post.paperurl %}
+      <p>{{ post.shortcitation }} &nbsp; <a href="{{ post.paperurl }}">Paper</a> &nbsp; </p>
     
     {% elsif post.citation %}
       <p>{{ post.citation }} </p>

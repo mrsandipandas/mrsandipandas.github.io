@@ -8,4 +8,5 @@ venue: 'Submitted as RAL'
 paperurl: https://mrsandipandas.github.io/files/online-calibration.pdf
 videourl: https://www.youtube.com/watch?v=aMWvWozBdrM
 citation: 'Das, S., Klinteberg, L.A., Fallon, M. and Chatterjee, S., 2022. Observability-aware online multi-lidar extrinsic calibration. <i>arXiv preprint</i> arXiv:2212.09579.'
+shortcitation: 'Das, S., Klinteberg, L.A., Fallon, M. and Chatterjee, S., 2022. <i>arXiv preprint</i> arXiv:2212.09579.'
 ---

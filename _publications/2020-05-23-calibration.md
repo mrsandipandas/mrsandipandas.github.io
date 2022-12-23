@@ -8,4 +8,5 @@ venue: 'ICRA'
 paperurl: https://mrsandipandas.github.io/files/calibration.pdf
 videourl: https://youtu.be/pSvWS1NxjM8
 citation: 'S. Das, N. Mahabadi, A. Djikic, C. Nassir, S. Chatterjee and M. Fallon, "Extrinsic Calibration and Verification of Multiple Non-overlapping Field of View Lidar Sensors," <i>International Conference on Robotics and Automation (ICRA)</i>, 2022, pp. 919-925.'
+shortcitation: 'S. Das, N. Mahabadi, A. Djikic, C. Nassir, S. Chatterjee and M. Fallon, <i>International Conference on Robotics and Automation (ICRA)</i>, 2022, pp. 919-925.'
 ---
