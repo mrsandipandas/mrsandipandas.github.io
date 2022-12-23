@@ -12,5 +12,5 @@ My main area of research is multi-modal SLAM for autonomous navigation. I have w
 </p>
 
 <p style="text-align: justify;">
-Currently, I am working as an Industrial PhD student employed by Scania and KTH and expect to graduate by Dec, 2023. The position is funded through a <a href="https://strategiska.se/en/"><u>Swedish Foundation For Strategic Research</u></a> scholarship.
+Currently, I am working as an Industrial PhD student employed by Scania and KTH and expect to graduate by Dec, 2023. The position is funded through a <a href="https://strategiska.se/en/">Swedish Foundation For Strategic Research</a> scholarship.
 </p>
