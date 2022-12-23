@@ -43,14 +43,14 @@ layout: default
         {% endif %}
         
         {% if page.excerpt %}
-          <p class="archive__item-excerpt" itemprop="description" style="text-align: justify;">{{ page.excerpt | markdownify }}</p>     
+          <p style="text-align: justify;" class="archive__item-excerpt" itemprop="description">{{ page.excerpt | markdownify }}</p>     
         {% endif %}
 
         {% if page.citation and page.paperurl %}
-          <p>Citation: {{ page.citation }} <a href="{{ page.paperurl }}"><u>{{ Paper }}</u></a></p>
+          <p>Citation: {{ page.citation }} <a href="{{ page.paperurl }}"><u>Paper</u></a></p>
         {% elsif page.citation %}
           
-          <p> {{ page.citation }} </p>
+          <p>Citation:  {{ page.citation }} </p>
           
         {% endif %}
     
