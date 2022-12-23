@@ -47,8 +47,12 @@ layout: default
           <p style="text-align: justify;" class="archive__item-excerpt" itemprop="description">{{ page.excerpt | markdownify }}</p>     
         {% endif %}
 
+        {% if page.citation and page.paperurl and page.videourl %}
+          <p style="text-align: justify;">Citation: {{ page.citation }}&nbsp;<a href="{{ page.paperurl }}"><u>Paper</u></a>&nbsp;<a href="{{ page.videourl }}"><u>Video</u></a></p>
+
         {% if page.citation and page.paperurl %}
-          <p style="text-align: justify;">Citation: {{ page.citation }} <a href="{{ page.paperurl }}"><u>Paper</u></a></p>
+          <p style="text-align: justify;">Citation: {{ page.citation }}&nbsp;<a href="{{ page.paperurl }}"><u>Paper</u></a></p>
+
         {% elsif page.citation %}
           
           <p style="text-align: justify;">Citation:  {{ page.citation }} </p>
