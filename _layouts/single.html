@@ -48,14 +48,14 @@ layout: default
         {% endif %}
 
         {% if page.citation and page.paperurl and page.videourl %}
-          <p style="text-align: justify;">Citation: {{ page.citation }} &nbsp; <a href="{{ page.paperurl }}">Paper</a> &nbsp; <a href="{{ page.videourl }}">Video</a></p>
+          <p>Citation: {{ page.citation }} &nbsp; <a href="{{ page.paperurl }}">Paper</a> &nbsp; <a href="{{ page.videourl }}">Video</a></p>
 
-        {% if page.citation and page.paperurl %}
-          <p style="text-align: justify;">Citation: {{ page.citation }} &nbsp; <a href="{{ page.paperurl }}">Paper</a></p>
+        {% elsif page.citation and page.paperurl %}
+          <p>Citation: {{ page.citation }} &nbsp; <a href="{{ page.paperurl }}">Paper</a></p>
 
         {% elsif page.citation %}
           
-          <p style="text-align: justify;">Citation:  {{ page.citation }} </p>
+          <p>Citation:  {{ page.citation }} </p>
           
         {% endif %}
     
