@@ -11,49 +11,62 @@ redirect_from:
 
 Education
 ======
-* B.S. in GitHub, GitHub University, 2012
-* M.S. in Jekyll, GitHub University, 2014
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
+
+* Ph.D in SLAM and Calibration, KTH, Sweden 2023 (expected)
+* M.Sc. in Information Security and Mobile Computing from NTNU, Norway and KTH, Sweden 2016
+* B.Tech. in Computer Science and Engineering, Jadavpur University, India 2009
 
 Work experience
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* 2019 - Now: Industrial Ph.D, Scania CV AB and KTH, Sweden 
+  * Project: Trajectory generation in offroad environments
+  * Supervisor: Prof. Saikat Chatterjee (KTH) and Prof. Maurice Fallon (Oxford Robotics Institute)
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-  
+* 2017 - 2019: Research Engineer, Scania CV AB, Sweden
+  * Duties included: Sensor fusion and calibration
+
+* 2016 - 2017: Research Engineer, IPSoft AB, Sweden
+  * Duties included: Data engineering and AI chatbot development
+
+* 2011 - 2014: Senior Engineer, Ericsson, India
+  * Duties included: Cross-platform mobile app development lead
+
+* 2009 - 2011: Consultant, PriceWaterHouse Coopers, India
+  * Duties included: Full-stack engineer
+
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Robotics
+  * SLAM
+  * Online calibration
+  * 3D Perception
+* Machine Learning
+  * Statistical learning
+  * Neural architecture search
+* Programming
+  * Python, C++, JAVA
 
 Publications
 ======
   <ul>{% for post in site.publications %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
-  
+
+<!--  
 Talks
 ======
   <ul>{% for post in site.talks %}
     {% include archive-single-talk-cv.html %}
   {% endfor %}</ul>
-  
+
 Teaching
 ======
   <ul>{% for post in site.teaching %}
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
-  
+
+
 Service and leadership
 ======
 * Currently signed in to 43 different slack teams
+-->
