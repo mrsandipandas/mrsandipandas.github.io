@@ -6,7 +6,7 @@ excerpt: "When deploying autonomous systems that require several sensors for per
 date: 2023-02-28
 venue: 'Submitted in IROS'
 paperurl: https://mrsandipandas.github.io/files/imu-online-calibration.pdf
-videourl: https://youtu.be/IOsTWaxRODQ
+videourl: https://mrsandipandas.github.io/files/imu-online-calibration.mp4
 citation: 'Das, S., Boberg, B., 2023. IMU-based online multi-lidar calibration without lidar odometry. <i>arXiv preprint</i> arXiv:2302.14735.'
 shortcitation: 'Das, S., Boberg, B., 2023. <i>arXiv preprint</i> arXiv:2302.14735.'
 ---
