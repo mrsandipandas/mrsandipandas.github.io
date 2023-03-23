@@ -8,9 +8,9 @@ redirect_from:
   - /about.html
 ---
 <p style="text-align: justify;"> 
-My main area of research is multi-modal SLAM for autonomous navigation. I have worked extensively with camera, lidar and radars and developed algorithms which have been deployed and tested in real vehicles in the automotive industry. My work has also touched cross-functional areas like auto-calibration and planning where I also used ML techniques. My work in these areas have been published in prestigious conferences and has received significant appreciation from the research community -- ICRA Best Student Paper Award Finalist 2021.
+My main area of research is multi-modal SLAM for autonomous navigation. I have worked extensively with camera, lidar and radars and developed algorithms which have been deployed and tested in real vehicles in the automotive industry. During my PhD studies I have also made significant efforts to convert proprietary datasets to opens-source formats (ROS) so that various open-source algorithms for SLAM can be benchmarked. My work has also touched cross-functional areas like online auto-calibration and intention prediction where I also used data driven techniques. My work in these areas have been published in prestigious journals and conferences that has received significant appreciation from the research community. One of the highlights was -- ICRA Best Student Paper Award Finalist 2021, which came in colloaboration with Oxford Robotics Institute.
 </p>
 
 <p style="text-align: justify;">
-Currently, I am working as an Industrial PhD student employed by Scania and KTH and expect to graduate by Dec, 2023. The position is funded through a <a href="https://strategiska.se/en/">Swedish Foundation For Strategic Research</a> scholarship.
+Currently, I am working as an Industrial PhD student employed by Scania and KTH and expect to graduate by Dec, 2023. The position is funded through a <a href="https://strategiska.se/en/">Swedish Foundation For Strategic Research</a> scholarship. My PhD project is also affiliated with Wallenberg AI, <a href="https://wasp-sweden.org/">Autonomous Systems and Software Program</a>.
 </p>
