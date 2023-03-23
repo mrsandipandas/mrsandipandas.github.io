@@ -20,6 +20,7 @@ Work experience
 ======
 * 2019 - Now: Industrial Ph.D, Scania CV AB and KTH, Sweden 
   * Project: Trajectory generation in offroad environments
+  * Research Internship (Jan 2020 - Oct 2020): Oxford Robotics Institute, with Prof. Maurice Fallon
   * Supervisor: Prof. Saikat Chatterjee (KTH) and Prof. Maurice Fallon (Oxford Robotics Institute)
 
 * 2017 - 2019: Research Engineer, Scania CV AB, Sweden
