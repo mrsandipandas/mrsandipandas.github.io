@@ -7,6 +7,6 @@ date: 2023-03-15
 venue: 'To be presented in IROS'
 paperurl: https://mrsandipandas.github.io/files/online-calibration.pdf
 videourl: https://www.youtube.com/watch?v=aMWvWozBdrM
-citation: 'S. Das, L. a. Klinteberg, M. Fallon and S. Chatterjee, "Observability-aware online multi-lidar extrinsic calibration," in <i>IEEE Robotics and Automation Letters</i>, doi: 10.1109/LRA.2023.3262176.'
+citation: 'S. Das, L. a. Klinteberg, M. Fallon and S. Chatterjee, 2023. "Observability-aware online multi-lidar extrinsic calibration," in <i>IEEE Robotics and Automation Letters</i>, doi: 10.1109/LRA.2023.3262176.'
 shortcitation: 'Das, S., Klinteberg, L.A., Fallon, M. and Chatterjee, S., in <i>IEEE Robotics and Automation Letters</i>, March 2023.'
 ---
