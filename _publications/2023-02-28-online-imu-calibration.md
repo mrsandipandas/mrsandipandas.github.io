@@ -16,10 +16,10 @@ subset of the IMU measurements that have the highest mutual
 information — rather than comparing all the readings. We have
 successfully validated our methodology using data gathered
 from Scania test vehicles."
-date: 2023-02-28
+date: 2024-02-28
 venue: 'Submitted in RA-L'
 paperurl: https://mrsandipandas.github.io/files/imu-online-calibration.pdf
 videourl: https://www.youtube.com/watch?v=HJ0CBWTFOhs
-citation: 'Das, S., Boberg, B., Fallon, M., Chatterjee, S., 2023. IMU-based online multi-lidar calibration without lidar odometry. <i>arXiv preprint</i> arXiv:2302.14735.'
-shortcitation: 'Das, S., Boberg, B., Fallon, M., Chatterjee, S., 2023. <i>arXiv preprint</i> arXiv:2302.14735.'
+citation: 'Das, S., Boberg, B., Fallon, M., & Chatterjee, S. (2024, June). IMU-based online multi-LiDAR calibration. In 2024 IEEE Intelligent Vehicles Symposium (IV) (pp. 3227-3234). IEEE.'
+shortcitation: 'Das, Sandipan, et al. "IMU-based online multi-LiDAR calibration." 2024 IEEE Intelligent Vehicles Symposium (IV). IEEE, 2024.'
 ---
