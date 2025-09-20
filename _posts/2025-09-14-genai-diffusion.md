@@ -12,6 +12,10 @@ tags:
   - Storytelling
 ---
 
+<!--more-->
+
+# Introduction
+
 Imagine you have a beautiful drawing of a `Bluey` — a playful six-year-old Blue Heeler pup. Now, imagine you slowly sprinkle tiny dots of dust all over it, little by little, until the whole picture turns into a messy cloud of dust. That’s called diffusion — the process of turning a clear image into a noisy one.
 
 ![Forward process of slowly adding random dust particles in steps to the image.](/images/posts/2025-09-14-genai-diffusion-images/1.png)
