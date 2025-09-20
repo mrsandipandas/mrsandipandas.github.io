@@ -12,52 +12,45 @@ redirect_from:
 Education
 ======
 
-* Ph.D in SLAM and Online Calibration, KTH, Sweden 2024
-* M.Sc. in Information Security and Mobile Computing from NTNU, Norway and KTH, Sweden 2016
-* B.Tech. in Computer Science and Engineering, Jadavpur University, India 2009
+* Ph.D in SLAM and Online Calibration, KTH, Sweden
+* M.Sc. in Electrical Engineering, NTNU, Norway and KTH, Sweden
+* B.Tech. in Computer Science and Engineering, Jadavpur University, India
 
 Work experience
 ======
-* 2024 - Now: Senior Research Engineer | Pupil-Labs, Germany 
-  * 3D-reconstruction sparse and dense reconstruction
+* 2025 - Now: Staff R&D Engineer | Qualcomm, India 
+  * 3D reconstrunction involving SLAM, AI/ML
+
+* 2024 - 2024: Senior R&D Engineer | Pupil-Labs, Germany 
   * SLAM for AR/VR and combining ML/AI-based eye-tracking
-  * Benchmark VIO-based algorithms
-  * Sensor fusion
 
-* 2019 - 2024: Senior Research Engineer | Industrial Ph.D, Scania CV AB and KTH, Sweden 
-  * Project: SLAM and Online Calibration
-  * Research Internship (Jan 2020 - Oct 2020): Oxford Robotics Institute, with Prof. Maurice Fallon
-  * Supervisor: Prof. Saikat Chatterjee (KTH) and Prof. Maurice Fallon (Oxford Robotics Institute)
+* 2017 - 2024: Associate Senior Research Engineer | Scania, Sweden 
+  * Perception (AI/ML), Sensor Fusion, SLAM and Online Calibration
+  * Industrial PhD with Prof. Saikat Chatterjee 
 
-* 2017 - 2019: Research Engineer, Scania CV AB, Sweden
-  * Duties included: Sensor fusion and calibration
+* 2020 - 2020: Research Internship | Oxford Robotics Institute, United Kingdom 
+  * Online multi-modal SLAM with Prof. Maurice Fallon
 
 * 2016 - 2017: Research Engineer, IPSoft AB, Sweden
-  * Duties included: Data engineering and AI chatbot development
+  * Data engineering and data analysis
 
 * 2011 - 2014: Senior Engineer, Ericsson, India
-  * Duties included: Cross-platform mobile app development lead
+  * Cross-platform mobile app development lead
 
 * 2009 - 2011: Consultant, PriceWaterHouse Coopers, India
-  * Duties included: Full-stack engineer
+  * Full-stack engineer
 
 Skills
 ======
 * Robotics
   * SLAM
-  * Online calibration
+  * AI/ML
   * 3D Perception
-* Machine Learning
-  * Statistical learning
-  * Neural architecture search
+* Domain expertise
+  * Autonomous Driving
+  * Spatial AI applications
 * Programming
   * Python, C++, JAVA
-
-Publications
-======
-  <ul>{% for post in site.publications %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
 
 <!--  
 Talks
