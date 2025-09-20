@@ -12,7 +12,7 @@ redirect_from:
 Education
 ======
 
-* Ph.D in SLAM and Online Calibration, KTH, Sweden
+* Ph.D in SLAM and Online Calibration with AI/ML, KTH, Sweden
 * M.Sc. in Electrical Engineering, NTNU, Norway and KTH, Sweden
 * B.Tech. in Computer Science and Engineering, Jadavpur University, India
 
