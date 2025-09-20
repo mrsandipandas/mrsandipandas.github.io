@@ -12,9 +12,6 @@ tags:
   - Storytelling
 ---
 
-
-# Introduction
-
 Have you ever played with a flipbook? You draw a picture on each page, and when you flip the pages really fast, the pictures move like a cartoon. Fun, right?
 
 ![An example flip book of Bluey.](/images/posts/2025-09-21-genai-video-diffusion-images/1.png)
