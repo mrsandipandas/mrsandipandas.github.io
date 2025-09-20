@@ -16,11 +16,11 @@ My journey began in full-stack engineering, where I built high-performance web a
 </p>
 
 <p style="text-align: justify;"> 
-Over the years, I’ve led the design and architecture of autonomous driving systems for global Tier-I OEMs &mdash; translating complex algorithms into robust, real-world solutions. At Qualcomm, I focus on shaping the ADAS technology roadmap, mentoring engineering teams, and collaborating with product and business stakeholders to deliver impactful solutions at scale.
+Over the years, I’ve led the design and architecture of autonomous driving systems for global Tier-I OEMs - translating complex algorithms into robust, real-world solutions. At Qualcomm, I focus on shaping the ADAS technology roadmap, mentoring engineering teams, and collaborating with product and business stakeholders to deliver impactful solutions at scale.
 </p>
 
 <p style="text-align: justify;"> 
-I’m passionate about building high-performing teams, fostering innovation, and driving the future of autonomous systems through thoughtful leadership and technical excellence. I have extensive expertise in autonomous driving domain, backed by 10+ years of experience, where I have worked on &mdash; bringing up sensor platforms using sensor calibration and sensor fusion, as well as developed and architected algorithms for perception, localization and planning which were deployed in real vehicles. I have extensive experience in working with IMU, camera, lidar, radar and GNSS sensors.
+I’m passionate about building high-performing teams, fostering innovation, and driving the future of autonomous systems through thoughtful leadership and technical excellence. I have extensive expertise in autonomous driving domain, backed by 10+ years of experience, where I have worked on - bringing up sensor platforms using sensor calibration and sensor fusion, as well as developed and architected algorithms for perception, localization and planning which were deployed in real vehicles. I have extensive experience in working with IMU, camera, lidar, radar and GNSS sensors.
 </p>
 
 <p style="text-align: justify;"> 
