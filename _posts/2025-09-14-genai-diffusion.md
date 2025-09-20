@@ -84,14 +84,14 @@ Despite these differences, there was hardly any innovation. Why? Because all stu
 
 Although the results from both the teams look good, the teacher was mildly disappointed as she didn't get to see the creative part of all the students. So, she re-planned her teaching strategy for the two groups. This time, she didn’t just show them clean pictures of Bluey, spaceships, and the moon. Instead, she sprinkled magic dust over the images before showing them. This dust made the pictures look blurry and speckled, so the students had to guess and reason about what they were seeing.
 
-- For the *CNN team*, like earlier, the teacher revealed the dusty images through a cardboard keyhole, so they learned to recognize local features even in noisy conditions -- like spotting an ear or a wing despite the blur.
+- For the *CNN team*, like earlier, the teacher revealed the dusty images through a cardboard keyhole, so they learned to recognize local features even in noisy conditions &mdash; like spotting an ear or a wing despite the blur.
 - For the *Transformer team*, the teacher gave them dusty patches and asked them to talk to each other to figure out what each patch might represent. This taught them to share context and handle uncertainty together.
 
 ![Team dusty](/images/posts/2025-09-14-genai-diffusion-images/5.png)
 
-Later, when the teacher gave the final magic drawing challenge again -- she didn’t let them start on a clean sheet. Instead, she covered their papers with random dusty patterns and said:
+Later, when the teacher gave the final magic drawing challenge again &mdash; she didn’t let them start on a clean sheet. Instead, she covered their papers with random dusty patterns and said:
 
-> “Now I’ll tell you a secret. Before you even start drawing, your brain has learned a special sketchbook from the dusty examples which you have seen -- a latent place where you imagine things before putting them on paper. It’s like a magical notebook where ideas live as fuzzy shapes and feelings, waiting to become real pictures.”
+> “Now I’ll tell you a secret. Before you even start drawing, your brain has learned a special sketchbook from the dusty examples which you have seen &mdash; a latent place where you imagine things before putting them on paper. It’s like a magical notebook where ideas live as fuzzy shapes and feelings, waiting to become real pictures.”
 
 The students gasped. “So we will draw from our imagination?”
 
@@ -102,7 +102,7 @@ The students nodded, imagining their sketchbooks filled with swirling clouds of 
 - The *CNN team* students focused on cleaning and refining local details first.
 - The *Transformer team* students worked on the overall structure early on.
 
-In the end, all drawings matched the description of the teacher. But because the students had learned about the objects through dust-covered images -- forcing them to build imaginative mental models -- and started from different noisy beginnings, their final artworks showed greater diversity in style and composition compared to the earlier approach, where everyone relied on memorized templates.
+In the end, all drawings matched the description of the teacher. But because the students had learned about the objects through dust-covered images &mdash; forcing them to build imaginative mental models &mdash; and started from different noisy beginnings, their final artworks showed greater diversity in style and composition compared to the earlier approach, where everyone relied on memorized templates.
 
 ![Drawing process](/images/posts/2025-09-14-genai-diffusion-images/6.png)
 
@@ -112,7 +112,7 @@ In the world of modern AI, our story mirrors the inner workings of a magic machi
 
 - **Learning Backbone → The Builders**: The machine needs strong builders to understand patterns. These are like the CNN team (masters of local details) and the Transformer team (experts in global context). Together, they form the backbone that learns how images are structured.
 - **Language Alignment → The Teacher’s Instructions**: Like the teacher gave clear directions—“Bluey sitting in a spaceship near the moon”, the magic machine uses language-image alignment (like CLIP) to connect what we say with what it draws.
-- **Generative Power → The Creative Drawing**: When the machine starts creating, it’s like the students drawing the scene from the teacher’s words. This is the essence of Generative AI -- turning text into pictures.
+- **Generative Power → The Creative Drawing**: When the machine starts creating, it’s like the students drawing the scene from the teacher’s words. This is the essence of Generative AI &mdash; turning text into pictures.
 - **Mode Collapse → Everyone Drawing the Same Thing**: Remember how the final drawings of all the students looked almost identical? That’s like mode collapse, where the model produces similar outputs instead of diverse ones.
 - **DDPM Strategy → The Dusty Trick**: To avoid memorization and encourage creativity, the teacher sprinkled magic dust on the paper, making students start from random scribbles and refine step by step. This is exactly what DDPM does.
 
@@ -128,7 +128,7 @@ But the real magic happened when the teacher introduced the dusty settings. By s
 - Language alignment (such as CLIP) connects words to images.
 - Diffusion strategies start from noise and iteratively de-noise, ensuring diversity and creativity while staying true to the prompt.
 
-Just like the final drawings of the students, these models transform randomness into meaning -- turning words into pictures. *“From dust to detail, generative models turn random chaos into meaningful representation -- guided one step at a time.”*
+Just like the final drawings of the students, these models transform randomness into meaning &mdash; turning words into pictures. *“From dust to detail, generative models turn random chaos into meaningful representation &mdash; guided one step at a time.”*
 
 ## Glossary
 
