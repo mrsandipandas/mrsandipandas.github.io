@@ -18,27 +18,16 @@ Education
 
 Work experience
 ======
-* 2025 - Now: Staff R&D Engineer | Qualcomm, India 
-  * 3D reconstrunction involving SLAM, AI/ML
+| Period       | Key Responsibilities                              | Role & Company, Location                         |
+|--------------|---------------------------------------------------|--------------------------------------------------|
+| 2025 - Now   | 3D reconstruction involving SLAM, AI/ML          | Staff R&D Engineer \| Qualcomm, India             |
+| 2024 - 2024  | SLAM for AR/VR and combining ML/AI-based eye-tracking | Senior R&D Engineer \| Pupil-Labs, Germany        |
+| 2017 - 2024  | Perception (AI/ML), Sensor Fusion, SLAM, Online Calibration <br> Industrial PhD with Prof. Saikat Chatterjee | Associate Senior Research Engineer \| Scania, Sweden |
+| 2020 - 2020  | Online multi-modal SLAM with Prof. Maurice Fallon | Research Internship \| Oxford Robotics Institute, UK |
+| 2016 - 2017  | Data engineering and data analysis                | Research Engineer \| IPSoft AB, Sweden             |
+| 2011 - 2014  | Cross-platform mobile app development lead        | Senior Engineer \| Ericsson, India                 |
+| 2009 - 2011  | Full-stack engineer                                | Consultant \| PriceWaterHouse Coopers, India       |
 
-* 2024 - 2024: Senior R&D Engineer | Pupil-Labs, Germany 
-  * SLAM for AR/VR and combining ML/AI-based eye-tracking
-
-* 2017 - 2024: Associate Senior Research Engineer | Scania, Sweden 
-  * Perception (AI/ML), Sensor Fusion, SLAM and Online Calibration
-  * Industrial PhD with Prof. Saikat Chatterjee 
-
-* 2020 - 2020: Research Internship | Oxford Robotics Institute, United Kingdom 
-  * Online multi-modal SLAM with Prof. Maurice Fallon
-
-* 2016 - 2017: Research Engineer, IPSoft AB, Sweden
-  * Data engineering and data analysis
-
-* 2011 - 2014: Senior Engineer, Ericsson, India
-  * Cross-platform mobile app development lead
-
-* 2009 - 2011: Consultant, PriceWaterHouse Coopers, India
-  * Full-stack engineer
 
 Skills
 ======
