@@ -16,11 +16,11 @@ tags:
 
 Imagine you have a beautiful drawing of a `Bluey` — a playful six-year-old Blue Heeler pup. Now, imagine you slowly sprinkle tiny dots of dust all over it, little by little, until the whole picture turns into a messy cloud of dust. That’s called diffusion — the process of turning a clear image into a noisy one.
 
-![Forward process of slowly adding random dust particles in steps to the image.](2025-09-14-genai-diffusion-images/1.png)
+![Forward process of slowly adding random dust particles in steps to the image.](/images/posts/2025-09-14-genai-diffusion-images/1.png)
 
 Now here’s the cool part: what if you had a magical machine that could look at that cloud of dust and slowly clean it up, step by step, until the `Bluey` drawing comes back? That’s what a diffusion model does! Guess what? These magic models can even make pictures just by listening to words! But shhh... let’s keep that secret in our pocket for later. But how can this magical machine make even more pictures of Bluey that I didn’t show it? If you're still curious, keep reading—it’s a pretty cool story!
 
-![Reverse process to remove the dust particles step by step in the image.](2025-09-14-genai-diffusion-images/2.png)
+![Reverse process to remove the dust particles step by step in the image.](/images/posts/2025-09-14-genai-diffusion-images/2.png)
 
 # On learning of magical machines
 
@@ -38,7 +38,7 @@ For the first team, the teacher had a quirky idea. She handed each student a tin
 
 So the students lined up, one by one, peeking through their keyholes at pictures of Bluey, spaceships, and moon. One student saw a fuzzy curve. “Hmm… that looks like an ear!” the teacher whispered. Another spotted a shiny patch. “That’s probably the spaceship’s window,” she said. Every time they peeked, the teacher gave them clues — helping them understand what that little piece might be. Over time, the students became mini detectives, learning to recognize each part of the image from just a glimpse. They didn’t see the whole picture at once, but they got really good at figuring out the details. They became puzzle solvers who knew each piece by heart — even if they never saw the full puzzle all at once.
 
-![Teams](2025-09-14-genai-diffusion-images/3.png) 
+![Teams](/images/posts/2025-09-14-genai-diffusion-images/3.png) 
 
 ## Team Transformers: The Puzzle Patchers
 
@@ -71,7 +71,7 @@ The room went silent for a heartbeat—and then pencils and colours began to dan
 
 With each small suggestion, the students’ drawings moved closer and closer to the teacher’s instruction. But something interesting happened: by the end, the final drawings from all students in each team looked strikingly similar (as shown in the figure below).
 
-![Backbones](2025-09-14-genai-diffusion-images/4.png)
+![Backbones](/images/posts/2025-09-14-genai-diffusion-images/4.png)
 
 - **Team CNN**: Their drawings had excellent local details — the spaceship panels were sharp, the moon’s craters were textured, and Bluey’s fur looked realistic. But the overall composition often felt fragmented, as if the parts didn’t fully belong together, like Bluey sitting over the spaceship, instead of sitting inside.
 - **Team Transformers**: Their drawings captured the global layout well — Bluey inside the spaceship, the moon in the background, and a sense of motion. However, some fine details were missing or simplified, making the image less rich in texture.
@@ -85,7 +85,7 @@ Although the results from both the teams look good, the teacher was mildly disap
 - For the *CNN team*, like earlier, the teacher revealed the dusty images through a cardboard keyhole, so they learned to recognize local features even in noisy conditions -- like spotting an ear or a wing despite the blur.
 - For the *Transformer team*, the teacher gave them dusty patches and asked them to talk to each other to figure out what each patch might represent. This taught them to share context and handle uncertainty together.
 
-![Team dusty](2025-09-14-genai-diffusion-images/5.png)
+![Team dusty](/images/posts/2025-09-14-genai-diffusion-images/5.png)
 
 Later, when the teacher gave the final magic drawing challenge again -- she didn’t let them start on a clean sheet. Instead, she covered their papers with random dusty patterns and said:
 
@@ -102,7 +102,7 @@ The students nodded, imagining their sketchbooks filled with swirling clouds of 
 
 In the end, all drawings matched the description of the teacher. But because the students had learned about the objects through dust-covered images -- forcing them to build imaginative mental models -- and started from different noisy beginnings, their final artworks showed greater diversity in style and composition compared to the earlier approach, where everyone relied on memorized templates.
 
-![Drawing process](2025-09-14-genai-diffusion-images/6.png)
+![Drawing process](/images/posts/2025-09-14-genai-diffusion-images/6.png)
 
 ## The Magic Machine Analogy
 
@@ -114,9 +114,7 @@ In the world of modern AI, our story mirrors the inner workings of a magic machi
 - **Mode Collapse → Everyone Drawing the Same Thing**: Remember how the final drawings of all the students looked almost identical? That’s like mode collapse, where the model produces similar outputs instead of diverse ones.
 - **DDPM Strategy → The Dusty Trick**: To avoid memorization and encourage creativity, the teacher sprinkled magic dust on the paper, making students start from random scribbles and refine step by step. This is exactly what DDPM does.
 
-![Magic machine](2025-09-14-genai-diffusion-images/7.png)
-
-*Figure: Illustration of the magic machine with analogy.*
+![Magic machine](/images/posts/2025-09-14-genai-diffusion-images/7.png)
 
 ## Conclusion
 
