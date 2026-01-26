@@ -1,3 +1,4 @@
 _site/
 Gemfile.lock
 .history
+.DS_Store

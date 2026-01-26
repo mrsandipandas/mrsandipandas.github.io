@@ -21,7 +21,7 @@ Work experience
 
 | Period              | Key Responsibilities                                | Role & Company, Location        |
 |---------------------|-----------------------------------------------------|---------------------------------
-| **2025 - Now**   | 3D reconstruction involving SLAM, AI/ML          | Staff R&D Engineer \| Qualcomm, India             |
+| **2025 - Now**   | Metric 3D reconstruction involving SLAM, AI/ML, VLA Model development  | Staff R&D Engineer \| Qualcomm, India             |
 | **2024 - 2024**  | SLAM for AR/VR and combining ML/AI-based eye-tracking | Senior R&D Engineer \| Pupil-Labs, Germany        |
 | **2017 - 2024**  | Perception (AI/ML), Sensor Fusion, SLAM, Online Calibration <br> Industrial PhD with Prof. Saikat Chatterjee | Associate Senior R&D Engineer \| Scania, Sweden |
 | **2020 - 2020**  | Online multi-modal SLAM with Prof. Maurice Fallon | Research Internship \| Oxford Robotics Institute, UK |
