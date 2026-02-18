@@ -1,0 +1,944 @@
+---
+title: 'Essential NN modules'
+date: 2026-02-18
+permalink: /posts/2026/02/nn/modules
+tags:
+  - NN
+  - Core ML
+  - AI 
+  - MachineLearning
+---
+
+<!--more-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neural Network Modules</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js"></script>
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --paper: #f5f0e8;
+    --cream: #ece6d9;
+    --rust: #c0392b;
+    --slate: #2c3e50;
+    --amber: #d4a017;
+    --muted: #7a7060;
+    --rule: #c8bfaa;
+    --highlight: #fff3cd;
+    --code-bg: #1a1a2e;
+    --code-fg: #a8d8a8;
+    --code-accent: #f8b500;
+    --code-dim: #6b7a8d;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Fraunces', Georgia, serif;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* Grain texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  header {
+    border-bottom: 3px double var(--rule);
+    padding: 3rem 4rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    right: -60px;
+    top: -60px;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    border: 1px solid var(--rule);
+    opacity: 0.3;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    right: 60px;
+    top: -20px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px solid var(--rule);
+    opacity: 0.2;
+  }
+
+  .header-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    max-width: 700px;
+  }
+
+  h1 span {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--rust);
+  }
+
+  .header-sub {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: var(--muted);
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  /* Tab navigation */
+  nav {
+    padding: 0 4rem;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    background: var(--cream);
+  }
+
+  nav button {
+    background: none;
+    border: none;
+    padding: 1rem 1.4rem;
+    cursor: pointer;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  nav button:hover { color: var(--ink); }
+  nav button.active {
+    color: var(--rust);
+    border-bottom-color: var(--rust);
+    font-weight: 700;
+  }
+
+  /* Main layout */
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 4rem;
+  }
+
+  .module-grid {
+    display: none;
+    gap: 2rem;
+    animation: fadeIn 0.35s ease;
+  }
+
+  .module-grid.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Module card */
+  .module-card {
+    border: 1px solid var(--rule);
+    background: white;
+    margin-bottom: 2rem;
+    position: relative;
+    transition: box-shadow 0.2s;
+  }
+
+  .module-card:hover {
+    box-shadow: 6px 6px 0 var(--cream);
+  }
+
+  .card-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: start;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--cream);
+    cursor: pointer;
+  }
+
+  .card-number {
+    font-family: 'Fraunces', serif;
+    font-size: 0.7rem;
+    color: var(--muted);
+    font-style: italic;
+    padding-top: 0.2rem;
+    letter-spacing: 0.05em;
+    user-select: none;
+  }
+
+  .card-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+
+  .card-subtitle {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+    font-weight: 300;
+    margin-top: 0.2rem;
+  }
+
+  .card-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    padding: 0.25rem 0.7rem;
+    border: 1px solid var(--rule);
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    align-self: start;
+    margin-top: 0.15rem;
+  }
+
+  .card-body {
+    padding: 0 2rem 1.5rem;
+    display: none;
+  }
+
+  .card-body.open { display: block; }
+
+  /* Two-column layout for math + code */
+  .card-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 800px) {
+    .card-cols { grid-template-columns: 1fr; }
+    main, header, nav { padding-left: 1.5rem; padding-right: 1.5rem; }
+  }
+
+  /* Math section */
+  .math-section {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    padding: 1.5rem;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .math-block {
+    font-size: 1.05rem;
+    overflow-x: auto;
+    padding: 0.5rem 0;
+    line-height: 2;
+  }
+
+  .math-note {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 1rem;
+    line-height: 1.5;
+  }
+
+  .math-vars {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .math-vars li {
+    list-style: none;
+    padding: 0.2rem 0;
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 1px dotted var(--rule);
+  }
+
+  .math-vars li:last-child { border-bottom: none; }
+
+  .var-sym {
+    font-family: 'DM Mono', monospace;
+    color: var(--slate);
+    min-width: 60px;
+  }
+
+  /* Code section */
+  .code-section {
+    background: var(--code-bg);
+    border: 1px solid #2a2a3e;
+    padding: 1.5rem;
+    overflow: hidden;
+  }
+
+  .code-section .section-label {
+    color: var(--code-accent);
+    opacity: 0.7;
+  }
+
+  pre {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    line-height: 1.7;
+    overflow-x: auto;
+    color: var(--code-fg);
+  }
+
+  .kw  { color: #bb9af7; }
+  .cls { color: #7dcfff; }
+  .fn  { color: #7aa2f7; }
+  .str { color: #9ece6a; }
+  .num { color: #ff9e64; }
+  .cm  { color: var(--code-dim); font-style: italic; }
+  .op  { color: #c0caf5; }
+  .par { color: #f7768e; }
+  .self{ color: #e0af68; }
+  .sep { color: #565f89; }
+
+  /* Intuition box */
+  .intuition-box {
+    margin-top: 1.5rem;
+    border-left: 3px solid var(--amber);
+    padding: 1rem 1.5rem;
+    background: var(--highlight);
+  }
+
+  .intuition-box p {
+    font-size: 0.88rem;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+
+  /* Dividers */
+  hr { border: none; border-top: 1px dashed var(--rule); margin: 1.5rem 0; }
+
+  /* When to use chip row */
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .chip {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    padding: 0.2rem 0.6rem;
+    letter-spacing: 0.06em;
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    color: var(--muted);
+  }
+
+  .chip.use { background: #e8f5e9; border-color: #81c784; color: #2e7d32; }
+  .chip.avoid { background: #fce4ec; border-color: #e57373; color: #c62828; }
+
+  /* Toggle arrow */
+  .toggle-arrow {
+    transition: transform 0.25s;
+    font-size: 0.8rem;
+    margin-top: 0.4rem;
+    color: var(--muted);
+    user-select: none;
+  }
+  .toggle-arrow.open { transform: rotate(180deg); }
+
+  /* Overview section */
+  .overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .overview-card {
+    border: 1px solid var(--rule);
+    padding: 1.25rem 1.5rem;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .overview-card:hover {
+    background: var(--cream);
+    box-shadow: 4px 4px 0 var(--rule);
+  }
+
+  .ov-name { font-weight: 700; font-size: 1rem; margin-bottom: 0.3rem; }
+  .ov-desc { font-size: 0.78rem; color: var(--muted); font-style: italic; }
+  .ov-cat {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--rust);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Footer */
+  footer {
+    border-top: 3px double var(--rule);
+    padding: 2rem 4rem;
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+
+  mjx-container { display: inline-block !important; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-eyebrow">A Field Reference</div>
+  <h1>Neural Network<br><span>Modules</span> & Mathematics</h1>
+  <p class="header-sub">Equations, intuitions, and PyTorch implementations for the essential building blocks</p>
+</header>
+
+<nav id="nav">
+  <button class="active" data-tab="all">All Modules</button>
+  <button data-tab="core">Core Layers</button>
+  <button data-tab="norm">Normalization</button>
+  <button data-tab="act">Activations</button>
+  <button data-tab="attn">Attention</button>
+  <button data-tab="loss">Loss Functions</button>
+</nav>
+
+<main>
+  <!-- ALL MODULES TAB -->
+  <div class="module-grid active" id="tab-all">
+  <!-- cards rendered by JS -->
+  </div>
+
+  <div class="module-grid" id="tab-core"></div>
+  <div class="module-grid" id="tab-norm"></div>
+  <div class="module-grid" id="tab-act"></div>
+  <div class="module-grid" id="tab-attn"></div>
+  <div class="module-grid" id="tab-loss"></div>
+</main>
+
+<footer>
+  Neural Network Field Reference &nbsp;·&nbsp; PyTorch &amp; Mathematics &nbsp;·&nbsp; Essential Modules
+</footer>
+
+<script>
+const modules = [
+  {
+    id: 1,
+    name: "Linear (Dense) Layer",
+    subtitle: "Affine transformation",
+    tag: "core",
+    tagLabel: "Core Layer",
+    math: String.raw`\mathbf{y} = \mathbf{x}\mathbf{W}^T + \mathbf{b}`,
+    mathExtra: String.raw`\mathbf{W} \in \mathbb{R}^{d_{out} \times d_{in}}, \quad \mathbf{b} \in \mathbb{R}^{d_{out}}`,
+    vars: [
+      ["x", "Input of shape (N, d_in)"],
+      ["W", "Weight matrix, shape (d_out, d_in)"],
+      ["b", "Bias vector, shape (d_out,)"],
+      ["y", "Output of shape (N, d_out)"],
+    ],
+    note: "Initialized with Kaiming uniform by default. Bias adds a constant offset to each neuron's output, acting as a learnable threshold.",
+    code: `<span class="kw">import</span> torch.nn <span class="kw">as</span> nn
+
+<span class="cm"># Define</span>
+layer = nn.<span class="cls">Linear</span>(<span class="num">512</span>, <span class="num">256</span>, bias=<span class="kw">True</span>)
+
+<span class="cm"># Custom weight init</span>
+nn.init.<span class="fn">kaiming_normal_</span>(layer.weight)
+nn.init.<span class="fn">zeros_</span>(layer.bias)
+
+<span class="cm"># Forward</span>
+x = torch.<span class="fn">randn</span>(<span class="num">32</span>, <span class="num">512</span>)  <span class="cm"># batch×in</span>
+y = <span class="fn">layer</span>(x)              <span class="cm"># → 32×256</span>
+
+<span class="cm"># Parameter count</span>
+params = <span class="num">512</span>*<span class="num">256</span> + <span class="num">256</span>    <span class="cm"># 131,328</span>`,
+    intuition: "Every hidden unit computes a weighted sum of all inputs plus a bias — a learnable hyperplane decision boundary. Stack many of these and you get universal function approximation.",
+    useTags: ["Fully-connected heads", "MLPs", "Projection layers", "Classification"],
+    avoidTags: ["Spatial data (use Conv)", "Sequential data (use RNN/Attn)"],
+  },
+  {
+    id: 2,
+    name: "Conv2d",
+    subtitle: "Spatial feature extraction",
+    tag: "core",
+    tagLabel: "Core Layer",
+    math: String.raw`(f * k)_{i,j} = \sum_{m}\sum_{n} x_{i+m,\,j+n} \cdot k_{m,n}`,
+    mathExtra: String.raw`d_{out} = \left\lfloor \frac{d_{in} + 2p - k}{s} \right\rfloor + 1`,
+    vars: [
+      ["x", "Input feature map (N,C,H,W)"],
+      ["k", "Kernel of size k×k"],
+      ["p", "Padding"],
+      ["s", "Stride"],
+    ],
+    note: "Weight sharing across spatial positions gives translation equivariance. Each output channel learns a distinct spatial pattern detector.",
+    code: `<span class="cm"># Standard 3×3 conv (same padding)</span>
+conv = nn.<span class="cls">Conv2d</span>(
+    in_channels=<span class="num">64</span>,
+    out_channels=<span class="num">128</span>,
+    kernel_size=<span class="num">3</span>,
+    padding=<span class="num">1</span>,   <span class="cm"># preserve HxW</span>
+    stride=<span class="num">1</span>
+)
+
+<span class="cm"># Depthwise-separable (efficient)</span>
+dw = nn.<span class="cls">Conv2d</span>(<span class="num">64</span>, <span class="num">64</span>, <span class="num">3</span>, groups=<span class="num">64</span>, padding=<span class="num">1</span>)
+pw = nn.<span class="cls">Conv2d</span>(<span class="num">64</span>, <span class="num">128</span>, <span class="num">1</span>)
+
+<span class="cm"># Params: 3×3×64×128 + 128 = 73,856</span>`,
+    intuition: "A sliding window that shares weights across the image — detecting edges, textures, or patterns regardless of position. Depth-wise separable convolutions get ~8× fewer parameters at little accuracy cost.",
+    useTags: ["Image classification", "Object detection", "Segmentation", "Any 2D spatial data"],
+    avoidTags: ["1D sequences (use Conv1d)", "Non-spatial graphs"],
+  },
+  {
+    id: 3,
+    name: "Batch Normalization",
+    subtitle: "Stabilize activations per mini-batch",
+    tag: "norm",
+    tagLabel: "Normalization",
+    math: String.raw`\hat{x}_i = \frac{x_i - \mu_\mathcal{B}}{\sqrt{\sigma^2_\mathcal{B} + \epsilon}}`,
+    mathExtra: String.raw`y_i = \gamma\,\hat{x}_i + \beta, \quad \mu_\mathcal{B} = \frac{1}{m}\sum_{i=1}^m x_i`,
+    vars: [
+      ["μ_B", "Mini-batch mean"],
+      ["σ²_B", "Mini-batch variance"],
+      ["γ, β", "Learnable scale and shift"],
+      ["ε", "Numerical stability (1e-5)"],
+    ],
+    note: "At inference, uses running statistics (exponential moving average). Breaks independence between samples — avoid with tiny batch sizes.",
+    code: `bn = nn.<span class="cls">BatchNorm2d</span>(<span class="num">128</span>)  <span class="cm"># after Conv2d</span>
+bn1d = nn.<span class="cls">BatchNorm1d</span>(<span class="num">512</span>)  <span class="cm"># after Linear</span>
+
+<span class="cm"># Typical conv block</span>
+block = nn.<span class="cls">Sequential</span>(
+    nn.<span class="cls">Conv2d</span>(<span class="num">64</span>, <span class="num">128</span>, <span class="num">3</span>, padding=<span class="num">1</span>),
+    nn.<span class="cls">BatchNorm2d</span>(<span class="num">128</span>),
+    nn.<span class="cls">ReLU</span>(inplace=<span class="kw">True</span>),
+)
+
+<span class="cm"># Freeze stats for fine-tuning</span>
+bn.<span class="fn">eval</span>()
+<span class="kw">for</span> p <span class="kw">in</span> bn.<span class="fn">parameters</span>(): p.requires_grad = <span class="kw">False</span>`,
+    intuition: "Normalizing each channel's distribution prevents internal covariate shift — gradients flow more uniformly, allowing higher learning rates. The learnable γ and β let the network undo the normalization if needed.",
+    useTags: ["CNNs", "ResNets", "Large batch training", "Computer vision"],
+    avoidTags: ["Batch size < 8", "RNNs", "Transformers (use LayerNorm)"],
+  },
+  {
+    id: 4,
+    name: "Layer Normalization",
+    subtitle: "Normalize across the feature dimension",
+    tag: "norm",
+    tagLabel: "Normalization",
+    math: String.raw`\text{LN}(\mathbf{x}) = \frac{\mathbf{x} - \mu}{\sqrt{\sigma^2 + \epsilon}} \odot \gamma + \beta`,
+    mathExtra: String.raw`\mu = \frac{1}{H}\sum_{i=1}^H x_i, \quad \sigma^2 = \frac{1}{H}\sum_{i=1}^H (x_i - \mu)^2`,
+    vars: [
+      ["H", "Number of features (not batch size)"],
+      ["γ, β", "Learnable, shape (H,)"],
+      ["⊙", "Element-wise multiply"],
+    ],
+    note: "Statistics computed over the feature dimension, not the batch. Works identically at train and inference time, independent of batch size.",
+    code: `<span class="cm"># Transformer standard</span>
+ln = nn.<span class="cls">LayerNorm</span>(<span class="num">512</span>)           <span class="cm"># normalize last dim</span>
+ln_2d = nn.<span class="cls">LayerNorm</span>([<span class="num">512</span>, <span class="num">16</span>, <span class="num">16</span>])  <span class="cm"># multi-dim</span>
+
+<span class="cm"># Pre-norm (modern style)</span>
+<span class="kw">class</span> <span class="cls">PreNormBlock</span>(nn.<span class="cls">Module</span>):
+    <span class="kw">def</span> <span class="fn">forward</span>(<span class="self">self</span>, x):
+        <span class="kw">return</span> x + <span class="self">self</span>.layer(<span class="self">self</span>.norm(x))
+
+<span class="cm"># eps default: 1e-5</span>
+ln = nn.<span class="cls">LayerNorm</span>(<span class="num">512</span>, eps=<span class="num">1e-6</span>)`,
+    intuition: "The workhorse of transformers. Normalizes within each sample independently, so batch size doesn't matter — critical for variable-length sequences and language models.",
+    useTags: ["Transformers", "LLMs", "NLP", "Any variable-batch scenario"],
+    avoidTags: ["CNNs on images (BatchNorm or GroupNorm preferred)"],
+  },
+  {
+    id: 5,
+    name: "ReLU & Variants",
+    subtitle: "The most common nonlinearities",
+    tag: "act",
+    tagLabel: "Activation",
+    math: String.raw`\text{ReLU}(x) = \max(0, x)`,
+    mathExtra: String.raw`\text{GELU}(x) = x \cdot \Phi(x) \approx x \cdot \sigma(1.702\,x)`,
+    vars: [
+      ["Φ(x)", "CDF of standard normal"],
+      ["σ(x)", "Sigmoid function"],
+    ],
+    note: "ReLU: O(1), sparse activations, dead neuron risk. GELU: smooth, probabilistic interpretation, used in GPT/BERT. SiLU=x·σ(x) (Swish) used in LLaMA.",
+    code: `<span class="cm"># Standard activations</span>
+relu  = nn.<span class="cls">ReLU</span>(inplace=<span class="kw">True</span>)
+gelu  = nn.<span class="cls">GELU</span>()
+silu  = nn.<span class="cls">SiLU</span>()  <span class="cm"># Swish: x·σ(x)</span>
+lrelu = nn.<span class="cls">LeakyReLU</span>(<span class="num">0.01</span>)
+
+<span class="cm"># Functional form (no params)</span>
+<span class="kw">import</span> torch.nn.functional <span class="kw">as</span> F
+y = F.<span class="fn">gelu</span>(x)
+y = F.<span class="fn">silu</span>(x)
+
+<span class="cm"># Dead neuron diagnostic</span>
+dead = (x.<span class="fn">detach</span>() &lt;= <span class="num">0</span>).<span class="fn">float</span>().<span class="fn">mean</span>()
+<span class="kw">print</span>(<span class="str">f"Dead neurons: {dead:.1%}"</span>)`,
+    intuition: "Nonlinearities allow networks to learn non-linear functions. ReLU's sparsity is computationally cheap; GELU's smooth gradient curve helps optimization in deep transformers.",
+    useTags: ["ReLU: CNNs, MLPs", "GELU: Transformers, LLMs", "SiLU: Vision transformers"],
+    avoidTags: ["Sigmoid/Tanh in hidden layers (vanishing gradients at depth)"],
+  },
+  {
+    id: 6,
+    name: "Softmax",
+    subtitle: "Probability distribution over classes",
+    tag: "act",
+    tagLabel: "Activation",
+    math: String.raw`\text{softmax}(x_i) = \frac{e^{x_i}}{\sum_{j=1}^K e^{x_j}}`,
+    mathExtra: String.raw`\text{log-softmax}(x_i) = x_i - \log\!\sum_j e^{x_j}`,
+    vars: [
+      ["x_i", "Raw logit for class i"],
+      ["K", "Number of classes"],
+    ],
+    note: "Numerically stable computation: subtract max(x) before exponentiating. PyTorch's CrossEntropyLoss applies log-softmax internally — don't add softmax before it!",
+    code: `<span class="cm"># Numerically stable softmax</span>
+<span class="kw">def</span> <span class="fn">stable_softmax</span>(x):
+    x = x - x.<span class="fn">max</span>(dim=-<span class="num">1</span>, keepdim=<span class="kw">True</span>).values
+    <span class="kw">return</span> F.<span class="fn">softmax</span>(x, dim=-<span class="num">1</span>)
+
+<span class="cm"># Temperature scaling</span>
+<span class="kw">def</span> <span class="fn">softmax_T</span>(x, T=<span class="num">1.0</span>):
+    <span class="kw">return</span> F.<span class="fn">softmax</span>(x / T, dim=-<span class="num">1</span>)
+
+<span class="cm"># For loss: DON'T apply softmax</span>
+loss = nn.<span class="cls">CrossEntropyLoss</span>()(logits, targets)
+
+<span class="cm"># For inference probabilities</span>
+probs = F.<span class="fn">softmax</span>(logits, dim=-<span class="num">1</span>)`,
+    intuition: "Squashes arbitrary logits into a valid probability simplex (sum to 1, all positive). Temperature T < 1 sharpens distributions; T > 1 smooths them (used in knowledge distillation).",
+    useTags: ["Classification outputs", "Attention weights", "Autoregressive sampling"],
+    avoidTags: ["Before CrossEntropyLoss (double-applies normalization)"],
+  },
+  {
+    id: 7,
+    name: "Multi-Head Attention",
+    subtitle: "Scaled dot-product attention, parallel heads",
+    tag: "attn",
+    tagLabel: "Attention",
+    math: String.raw`\text{Attn}(Q,K,V) = \text{softmax}\!\left(\frac{QK^T}{\sqrt{d_k}}\right)V`,
+    mathExtra: String.raw`\text{MHA} = \text{Concat}(\text{head}_1,\ldots,\text{head}_h)\,W^O`,
+    vars: [
+      ["Q,K,V", "Query, Key, Value matrices"],
+      ["d_k", "Head dimension (d_model/h)"],
+      ["h", "Number of attention heads"],
+      ["W^O", "Output projection (d_model × d_model)"],
+    ],
+    note: "The √d_k scaling prevents dot products from growing large and pushing softmax into saturated regions. Each head attends to different representational subspaces.",
+    code: `<span class="kw">class</span> <span class="cls">MHA</span>(nn.<span class="cls">Module</span>):
+    <span class="kw">def</span> <span class="fn">__init__</span>(<span class="self">self</span>, d, h=<span class="num">8</span>):
+        <span class="kw">super</span>().<span class="fn">__init__</span>()
+        <span class="self">self</span>.attn = nn.<span class="cls">MultiheadAttention</span>(
+            d, h, dropout=<span class="num">0.1</span>,
+            batch_first=<span class="kw">True</span>
+        )
+
+    <span class="kw">def</span> <span class="fn">forward</span>(<span class="self">self</span>, x, mask=<span class="kw">None</span>):
+        <span class="kw">return</span> <span class="self">self</span>.attn(x, x, x,
+            attn_mask=mask)[<span class="num">0</span>]
+
+<span class="cm"># Causal mask for autoregression</span>
+mask = nn.Transformer.<span class="fn">generate_square_subsequent_mask</span>(<span class="num">seq_len</span>)`,
+    intuition: "Attention lets every position directly attend to every other — no recurrence needed. Multiple heads capture different relationship types (syntactic, semantic, coreference) in parallel.",
+    useTags: ["Transformers", "LLMs", "Vision transformers", "Self-attention", "Cross-attention"],
+    avoidTags: ["Very long sequences (O(n²) cost — use FlashAttention or sparse variants)"],
+  },
+  {
+    id: 8,
+    name: "Dropout",
+    subtitle: "Stochastic regularization",
+    tag: "core",
+    tagLabel: "Core Layer",
+    math: String.raw`y_i = \begin{cases} 0 & \text{with prob. } p \\ \dfrac{x_i}{1-p} & \text{with prob. } 1-p \end{cases}`,
+    mathExtra: String.raw`\mathbb{E}[y_i] = x_i \quad \text{(inverted dropout)}`,
+    vars: [
+      ["p", "Drop probability (typically 0.1–0.5)"],
+    ],
+    note: "PyTorch uses inverted dropout: scales active units by 1/(1-p) during training so expected values match at inference without any scaling adjustment.",
+    code: `<span class="cm"># Standard dropout</span>
+drop = nn.<span class="cls">Dropout</span>(p=<span class="num">0.1</span>)
+
+<span class="cm"># 2D spatial dropout (conv features)</span>
+drop2d = nn.<span class="cls">Dropout2d</span>(p=<span class="num">0.1</span>)
+
+<span class="cm"># Check train vs eval mode</span>
+model.<span class="fn">train</span>()   <span class="cm"># dropout active</span>
+model.<span class="fn">eval</span>()    <span class="cm"># dropout disabled</span>
+
+<span class="cm"># Monte-Carlo inference</span>
+<span class="kw">def</span> <span class="fn">mc_predict</span>(model, x, n=<span class="num">100</span>):
+    model.<span class="fn">train</span>()             <span class="cm"># keep dropout on</span>
+    preds = [<span class="fn">model</span>(x) <span class="kw">for</span> _ <span class="kw">in</span> <span class="fn">range</span>(n)]
+    <span class="kw">return</span> torch.<span class="fn">stack</span>(preds).<span class="fn">mean</span>(<span class="num">0</span>)`,
+    intuition: "Randomly zeroing activations forces the network to learn redundant representations — an ensemble of 2^n thinned networks at the cost of one. Monte-Carlo dropout gives free uncertainty estimates at inference.",
+    useTags: ["After Linear layers", "Transformers", "Regularization in general"],
+    avoidTags: ["After BatchNorm (interferes with statistics)", "Final conv layers in CNNs"],
+  },
+  {
+    id: 9,
+    name: "Embedding",
+    subtitle: "Discrete token → dense vector",
+    tag: "core",
+    tagLabel: "Core Layer",
+    math: String.raw`\mathbf{e}_i = \mathbf{W}_E[i], \quad \mathbf{W}_E \in \mathbb{R}^{V \times d}`,
+    mathExtra: String.raw`\text{lookup: } \mathbf{e} = \mathbf{W}_E^T \mathbf{o}_i \quad (\mathbf{o}_i \text{ is one-hot})`,
+    vars: [
+      ["V", "Vocabulary size"],
+      ["d", "Embedding dimension"],
+      ["i", "Token index"],
+    ],
+    note: "A learnable lookup table. Semantically similar tokens cluster together in embedding space after training. Padding index prevents gradient updates for padded positions.",
+    code: `<span class="cls">emb</span> = nn.<span class="cls">Embedding</span>(
+    num_embeddings=<span class="num">32000</span>,  <span class="cm"># vocab size</span>
+    embedding_dim=<span class="num">512</span>,
+    padding_idx=<span class="num">0</span>,
+)
+
+<span class="cm"># Positional embedding</span>
+pos_emb = nn.<span class="cls">Embedding</span>(<span class="num">2048</span>, <span class="num">512</span>)
+pos = torch.<span class="fn">arange</span>(<span class="num">seq_len</span>)
+x = token_emb(ids) + pos_emb(pos)
+
+<span class="cm"># Tie input/output embeddings</span>
+lm_head = nn.<span class="cls">Linear</span>(<span class="num">512</span>, <span class="num">32000</span>, bias=<span class="kw">False</span>)
+lm_head.weight = emb.weight  <span class="cm"># shared</span>`,
+    intuition: "Maps discrete symbols (words, pixels, actions) into a continuous geometric space where the model can reason about similarity and relationships through standard linear algebra.",
+    useTags: ["Language models", "Recommendation systems", "Any categorical variable"],
+    avoidTags: ["Continuous inputs (use Linear directly)"],
+  },
+  {
+    id: 10,
+    name: "Cross-Entropy Loss",
+    subtitle: "Classification objective",
+    tag: "loss",
+    tagLabel: "Loss Function",
+    math: String.raw`\mathcal{L} = -\sum_{i=1}^N y_i \log \hat{p}_i`,
+    mathExtra: String.raw`= -\log \hat{p}_c \quad \text{(for ground-truth class } c\text{)}`,
+    vars: [
+      ["y_i", "One-hot target label"],
+      ["p̂_i", "Predicted probability"],
+      ["c", "Ground-truth class index"],
+    ],
+    note: "PyTorch's nn.CrossEntropyLoss = log_softmax + NLLLoss. Takes raw logits as input. label_smoothing > 0 prevents overconfident predictions.",
+    code: `criterion = nn.<span class="cls">CrossEntropyLoss</span>(
+    weight=class_weights,      <span class="cm"># handle imbalance</span>
+    ignore_index=<span class="num">-100</span>,          <span class="cm"># mask padding</span>
+    label_smoothing=<span class="num">0.1</span>,       <span class="cm"># regularize</span>
+    reduction=<span class="str">'mean'</span>
+)
+
+logits = model(x)             <span class="cm"># raw, not softmax</span>
+loss = <span class="fn">criterion</span>(logits, targets)
+
+<span class="cm"># Label smoothed CE manually</span>
+<span class="kw">def</span> <span class="fn">smooth_ce</span>(logits, targets, ε=<span class="num">0.1</span>):
+    logp = F.<span class="fn">log_softmax</span>(logits, dim=-<span class="num">1</span>)
+    nll = -logp.<span class="fn">gather</span>(<span class="num">1</span>, targets.<span class="fn">view</span>(-<span class="num">1</span>,<span class="num">1</span>)).<span class="fn">squeeze</span>()
+    <span class="kw">return</span> (<span class="num">1</span>-ε)*nll - ε*logp.<span class="fn">mean</span>(dim=-<span class="num">1</span>)`,
+    intuition: "Minimizing cross-entropy is equivalent to maximum likelihood estimation of the class distribution. It penalizes confident wrong predictions much more harshly than uncertain ones.",
+    useTags: ["Multi-class classification", "Language model next-token prediction"],
+    avoidTags: ["Regression (use MSE/Huber)", "Multi-label (use BCE per class)"],
+  },
+  {
+    id: 11,
+    name: "LSTM",
+    subtitle: "Long Short-Term Memory cell",
+    tag: "core",
+    tagLabel: "Core Layer",
+    math: String.raw`\mathbf{f}_t = \sigma\!\left(W_f [\mathbf{h}_{t-1},\mathbf{x}_t]+b_f\right)`,
+    mathExtra: String.raw`\mathbf{c}_t = \mathbf{f}_t \odot \mathbf{c}_{t-1} + \mathbf{i}_t \odot \tilde{\mathbf{c}}_t`,
+    vars: [
+      ["f_t", "Forget gate: how much to keep from c_{t-1}"],
+      ["i_t", "Input gate: how much new info to write"],
+      ["c_t", "Cell state: long-term memory"],
+      ["h_t", "Hidden state: output at time t"],
+    ],
+    note: "Four gate matrices (forget, input, cell, output) each of size d_h × (d_h + d_x). Total parameters: 4 × d_h × (d_h + d_x + 1).",
+    code: `lstm = nn.<span class="cls">LSTM</span>(
+    input_size=<span class="num">128</span>,
+    hidden_size=<span class="num">256</span>,
+    num_layers=<span class="num">2</span>,
+    batch_first=<span class="kw">True</span>,
+    dropout=<span class="num">0.2</span>,
+    bidirectional=<span class="kw">True</span>,
+)
+
+<span class="cm"># Forward pass</span>
+h0 = torch.<span class="fn">zeros</span>(<span class="num">4</span>, batch, <span class="num">256</span>)  <span class="cm"># 2L×2D</span>
+c0 = torch.<span class="fn">zeros</span>(<span class="num">4</span>, batch, <span class="num">256</span>)
+out, (hn, cn) = <span class="fn">lstm</span>(x, (h0, c0))
+<span class="cm"># out: (batch, seq, 512)  bidirectional</span>`,
+    intuition: "The forget gate solves vanilla RNN's vanishing gradient problem by providing a highway for gradients to flow through time. Largely superseded by Transformers for long sequences, but still useful for streaming/online learning scenarios.",
+    useTags: ["Time series", "Audio", "Streaming inference", "Stateful processing"],
+    avoidTags: ["Long contexts (>512 tokens) where Transformers are faster"],
+  },
+  {
+    id: 12,
+    name: "MSE & Huber Loss",
+    subtitle: "Regression objectives",
+    tag: "loss",
+    tagLabel: "Loss Function",
+    math: String.raw`\mathcal{L}_{\text{MSE}} = \frac{1}{N}\sum_{i=1}^N (y_i - \hat{y}_i)^2`,
+    mathExtra: String.raw`\mathcal{L}_\delta = \begin{cases} \tfrac{1}{2}r^2 & |r| \le \delta \\ \delta(|r|-\tfrac{\delta}{2}) & |r| > \delta \end{cases}`,
+    vars: [
+      ["r", "Residual y_i − ŷ_i"],
+      ["δ", "Huber threshold (default 1.0)"],
+    ],
+    note: "MSE is differentiable everywhere but sensitive to outliers (quadratic growth). Huber loss transitions to L1 beyond δ, being outlier-robust while maintaining smooth gradients near zero.",
+    code: `<span class="cm"># Standard regression losses</span>
+mse  = nn.<span class="cls">MSELoss</span>()
+mae  = nn.<span class="cls">L1Loss</span>()
+huber = nn.<span class="cls">HuberLoss</span>(delta=<span class="num">1.0</span>)  <span class="cm"># SmoothL1</span>
+
+loss = <span class="fn">mse</span>(pred, target)
+
+<span class="cm"># Log-cosh loss (very smooth)</span>
+<span class="kw">def</span> <span class="fn">log_cosh</span>(pred, target):
+    r = pred - target
+    <span class="kw">return</span> torch.<span class="fn">log</span>(torch.<span class="fn">cosh</span>(r)).<span class="fn">mean</span>()
+
+<span class="cm"># Weighted MSE</span>
+weights = ...
+loss = ((pred - target)**<span class="num">2</span> * weights).<span class="fn">mean</span>()`,
+    intuition: "MSE penalizes large errors quadratically — great when targets are clean, terrible with outliers. Huber gives you the best of both: gradient stability near zero and outlier robustness at the tails.",
+    useTags: ["MSE: clean regression targets", "Huber: regression with outliers, RL value functions"],
+    avoidTags: ["Classification (use CrossEntropy)", "Distributions (use KL divergence)"],
+  },
+];
+
+function highlight(code) { return code; } // already HTML
+
+function renderCard(m, idx) {
+  return `
+  <div class="module-card" data-tag="${m.tag}">
+    <div class="card-header" onclick="toggle(this)">
+      <span class="card-number">${String(m.id).padStart(2,'0')}</span>
+      <div>
+        <div class="card-title">${m.name}</div>
+        <div class="card-subtitle">${m.subtitle}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem">
+        <span class="card-tag">${m.tagLabel}</span>
+        <span class="toggle-arrow">▾</span>
+      </div>
+    </div>
+    <div class="card-body ${idx === 0 ? 'open' : ''}">
+      <div class="card-cols">
+        <div class="math-section">
+          <div class="section-label">Mathematics</div>
+          <div class="math-block">\\(${m.math}\\)</div>
+          <div class="math-block">\\(${m.mathExtra}\\)</div>
+          <ul class="math-vars">
+            ${m.vars.map(v => `<li><span class="var-sym">${v[0]}</span><span>${v[1]}</span></li>`).join('')}
+          </ul>
+          <div class="math-note">${m.note}</div>
+        </div>
+        <div class="code-section">
+          <div class="section-label">PyTorch</div>
+          <pre>${m.code}</pre>
+        </div>
+      </div>
+      <div class="intuition-box">
+        <p><strong>Intuition:</strong> ${m.intuition}</p>
+        <div class="chips">
+          ${m.useTags.map(t => `<span class="chip use">✓ ${t}</span>`).join('')}
+          ${m.avoidTags.map(t => `<span class="chip avoid">✗ ${t}</span>`).join('')}
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function toggle(header) {
+  const body = header.nextElementSibling;
+  const arrow = header.querySelector('.toggle-arrow');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  arrow.classList.toggle('open', !isOpen);
+}
+
+// Render cards
+const tabAll = document.getElementById('tab-all');
+const tabMaps = { core: 'tab-core', norm: 'tab-norm', act: 'tab-act', attn: 'tab-attn', loss: 'tab-loss' };
+
+modules.forEach((m, idx) => {
+  tabAll.innerHTML += renderCard(m, idx);
+  const tabEl = document.getElementById(tabMaps[m.tag]);
+  if (tabEl) {
+    const localIdx = tabEl.children.length;
+    tabEl.innerHTML += renderCard(m, localIdx);
+  }
+});
+
+// Re-typeset after DOM insertion
+MathJax.typesetPromise();
+
+// Tab switching
+document.getElementById('nav').addEventListener('click', e => {
+  const btn = e.target.closest('button');
+  if (!btn) return;
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.module-grid').forEach(g => g.classList.remove('active'));
+  btn.classList.add('active');
+  const tab = btn.dataset.tab;
+  document.getElementById('tab-' + tab).classList.add('active');
+});
+</script>
+</body>
+</html>
+`;
+
+
+
