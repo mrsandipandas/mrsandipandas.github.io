@@ -20,7 +20,7 @@ Throughout my career, I have led the design and architecture of autonomous drivi
 </p>
 
 <p style="text-align: justify;"> 
-I am committed to building high-performing teams, fostering innovation, and advancing autonomous systems through thoughtful leadership and technical excellence. With over 10 years of experience in the autonomous driving domain, I have extensive expertise in sensor platform integration — including sensor calibration and sensor fusion — and have developed and architected algorithms for perception, localization, and planning deployed in real vehicles. I have worked extensively with IMU, camera, LiDAR, radar, and GNSS sensors.
+I am committed to building high-performing teams, fostering innovation, and advancing autonomous systems through thoughtful leadership and technical excellence. With over 10 years of experience in the autonomous driving domain, I have extensive expertise in sensor platform integration (including sensor calibration and sensor fusion) and have developed and architected algorithms for perception, localization, and planning deployed in real vehicles. My technical focus has expanded to end-to-end Vision-Language-Action (VLA) models for physical AI, combining classical SLAM with modern neural rendering for closed-loop evaluation. I have worked extensively with IMU, camera, LiDAR, radar, and GNSS sensors.
 </p>
 
 <p style="text-align: justify;"> 
